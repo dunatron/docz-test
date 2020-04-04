@@ -39,3 +39,21 @@ yarn build # npm run build
 ```sh
 yarn serve # npm run serve
 ```
+
+## deploy to heroku
+
+1. create as a git repo and push the master branch
+
+- `git init`
+- `git add .`
+- `git commit -m "initial commit"`
+- `git remote add origin git@github.com:dunatron/docz-test.git`
+- `git push -u origin master`
+
+2. Create the App on heroku
+
+- `heroku apps:create docz-test` which will output a git remote:
+  - https://docz-test.herokuapp.com/ | https://git.heroku.com/docz-test.git
+- take the new remote and run the following
+- `git remote add heroku-docz-test https://git.heroku.com/docz-test.git`
+- `git subtree push --prefix ./docz/dist heroku-docz-test master`
